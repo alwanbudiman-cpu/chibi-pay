@@ -53,7 +53,7 @@ export interface PayResult {
 export async function payNim(options: {
   recipient: string;
   nim: number;
-  message?: string;
+  message?: string | undefined;
 }): Promise<PayResult> {
   const value = nimToLuna(options.nim);
   const recipient = options.recipient.replace(/\s+/g, "");

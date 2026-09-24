@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { Plus, Sparkles, Trash2, Receipt } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
-import { Mascot, ANIMAL_KEYS } from "@/components/Mascot";
+import { Mascot } from "@/components/Mascot";
 import { billsStore, newId, useBills } from "@/lib/store";
 import { billTotal, formatUsd, isSettled } from "@/lib/split";
 import type { SplitMode } from "@/lib/types";
@@ -131,7 +131,7 @@ function Home() {
                       />
                     ))}
                     {bill.participants.length === 0 && (
-                      <Mascot animal={ANIMAL_KEYS[0]} className="h-11 w-11 opacity-50" />
+                      <Mascot animal="cat" className="h-11 w-11 opacity-50" />
                     )}
                   </div>
                   <div className="min-w-0">

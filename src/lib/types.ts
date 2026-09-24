@@ -16,9 +16,9 @@ export interface Participant {
   id: string;
   name: string;
   animal: AnimalKey;
-  address?: string;
-  paidAt?: string;
-  txHash?: string;
+  address?: string | undefined;
+  paidAt?: string | undefined;
+  txHash?: string | undefined;
 }
 
 export interface BillItem {
@@ -37,13 +37,13 @@ export interface Bill {
   totalUsd: number;
   participants: Participant[];
   items: BillItem[];
-  payeeAddress?: string;
-  luckyWinnerId?: string;
-  luckyMode?: LuckyMode;
+  payeeAddress?: string | undefined;
+  luckyWinnerId?: string | undefined;
+  luckyMode?: LuckyMode | undefined;
 }
 
 export interface Share {
   participantId: string;
   amountUsd: number;
-  note?: string;
+  note?: string | undefined;
 }

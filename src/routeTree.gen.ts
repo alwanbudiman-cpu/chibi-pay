@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LeaderboardRouteImport } from './routes/leaderboard'
 import { Route as WheelRouteImport } from './routes/wheel'
 import { Route as BillBillIdRouteImport } from './routes/bill.$billId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeaderboardRoute = LeaderboardRouteImport.update({
+  id: '/leaderboard',
+  path: '/leaderboard',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WheelRoute = WheelRouteImport.update({
@@ -31,30 +37,34 @@ const BillBillIdRoute = BillBillIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/leaderboard': typeof LeaderboardRoute
   '/wheel': typeof WheelRoute
   '/bill/$billId': typeof BillBillIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/leaderboard': typeof LeaderboardRoute
   '/wheel': typeof WheelRoute
   '/bill/$billId': typeof BillBillIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/leaderboard': typeof LeaderboardRoute
   '/wheel': typeof WheelRoute
   '/bill/$billId': typeof BillBillIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/wheel' | '/bill/$billId'
+  fullPaths: '/' | '/leaderboard' | '/wheel' | '/bill/$billId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/wheel' | '/bill/$billId'
-  id: '__root__' | '/' | '/wheel' | '/bill/$billId'
+  to: '/' | '/leaderboard' | '/wheel' | '/bill/$billId'
+  id: '__root__' | '/' | '/leaderboard' | '/wheel' | '/bill/$billId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LeaderboardRoute: typeof LeaderboardRoute
   WheelRoute: typeof WheelRoute
   BillBillIdRoute: typeof BillBillIdRoute
 }
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leaderboard': {
+      id: '/leaderboard'
+      path: '/leaderboard'
+      fullPath: '/leaderboard'
+      preLoaderRoute: typeof LeaderboardRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/wheel': {
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LeaderboardRoute: LeaderboardRoute,
   WheelRoute: WheelRoute,
   BillBillIdRoute: BillBillIdRoute,
 }

@@ -20,7 +20,6 @@ Aplikasi patungan (split bill) bergaya anime chibi hewan lucu, dengan login domp
 
 - **Bagi rata**: total dibagi jumlah orang.
 - **Per item**: tiap item bisa ditandai dimakan siapa saja (termasuk patungan satu item berdua/bertiga), pembagian otomatis proporsional.
-- Pajak dan tip dibagi proporsional terhadap porsi masing-masing.
 - Nilai ditampilkan ganda: USD dan NIM, dengan kurs yang bisa diatur/diambil saat konversi.
 
 ## Nimiq

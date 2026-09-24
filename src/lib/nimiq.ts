@@ -70,7 +70,7 @@ export async function payNim(options: {
     appName: NIMIQ_APP_NAME,
     recipient,
     value,
-    extraData: options.message,
+    ...(options.message ? { extraData: options.message } : {}),
   });
   return { hash: (tx as { hash?: string }).hash ?? "ok", via: "hub-checkout" };
 }
